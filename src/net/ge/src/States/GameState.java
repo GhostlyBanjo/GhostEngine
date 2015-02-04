@@ -1,9 +1,11 @@
 package net.ge.src.States;
 
+import java.awt.Graphics;
+
 public interface GameState {
 
 	public void Update(float elapsedTime);
-	public void Render();
+	public void Render(Graphics g);
 	public void OnExit();
 	public void OnEnter();
 	
@@ -18,12 +20,6 @@ class EmptyGameState implements GameState {
 	}
 
 	@Override
-	public void Render() {
-		// Does nothing
-		
-	}
-
-	@Override
 	public void OnExit() {
 		// Does nothing
 		
@@ -32,6 +28,12 @@ class EmptyGameState implements GameState {
 	@Override
 	public void OnEnter() {
 		// Does nothing
+		
+	}
+
+	@Override
+	public void Render(Graphics g) {
+		// TODO Auto-generated method stub
 		
 	}
 

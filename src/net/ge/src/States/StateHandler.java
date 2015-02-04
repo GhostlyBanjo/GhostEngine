@@ -1,5 +1,6 @@
 package net.ge.src.States;
 
+import java.awt.Graphics;
 import java.util.*;
 
 public class StateHandler {
@@ -11,10 +12,14 @@ public class StateHandler {
 		GameState currentState = stateStack.peek();
 		currentState.Update(elapsedTime);
 	}
-	public void Render(){
-		
+	public void Render(Graphics g){
+		stateStack.peek().Render(g);
 	}
 	public void Push(GameState state){
 		stateStack.push(state);
+		stateStack.peek().OnEnter();
+	}
+	public void Pop(){
+		stateStack.pop().OnExit();
 	}
 }
