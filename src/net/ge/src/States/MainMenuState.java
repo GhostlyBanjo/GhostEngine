@@ -1,7 +1,10 @@
 package net.ge.src.States;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.*;
+
+import net.ge.src.Game;
 
 public class MainMenuState implements GameState, KeyListener {
 
@@ -17,7 +20,8 @@ public class MainMenuState implements GameState, KeyListener {
 	@Override
 	public void Render(Graphics g) {
 		// TODO Auto-generated method stub
-
+			g.setColor(Color.BLACK);
+			g.fillRect(0, 0, Game.WIDTH, Game.HEIGHT);
 	}
 
 	@Override

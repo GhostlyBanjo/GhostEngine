@@ -5,21 +5,21 @@ import java.util.*;
 
 public class StateHandler {
 
-	HashMap<String, GameState> stacks = new HashMap<String,GameState>();
-	Stack<GameState> stateStack = new Stack<GameState>();
+	static HashMap<String, GameState> stacks = new HashMap<String,GameState>();
+	static Stack<GameState> stateStack = new Stack<GameState>();
 	
-	public void Update(float elapsedTime){
+	public static  void Update(long elapsedTime){
 		GameState currentState = stateStack.peek();
 		currentState.Update(elapsedTime);
 	}
-	public void Render(Graphics g){
+	public static void Render(Graphics g){
 		stateStack.peek().Render(g);
 	}
-	public void Push(GameState state){
+	public static void Push(GameState state){
 		stateStack.push(state);
 		stateStack.peek().OnEnter();
 	}
-	public void Pop(){
+	public static void Pop(){
 		stateStack.pop().OnExit();
 	}
 }
