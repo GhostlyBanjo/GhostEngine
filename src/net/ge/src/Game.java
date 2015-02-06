@@ -15,8 +15,13 @@ public class Game extends JFrame {
 	
 	public static final int WIDTH = 1024;
 	public static final int HEIGHT = 728;
-	private boolean isRun = true;
 	public static StateHandler stateHandler = new StateHandler();
+	
+	
+	private boolean isRun = true;
+	public static Font titleFont = new Font("Terminal", Font.PLAIN,36);
+	public static Font menuFont = new Font("Terminal", Font.PLAIN,20);
+	
 
 	
 	public Game(){
