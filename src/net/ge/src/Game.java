@@ -37,16 +37,15 @@ public class Game extends JFrame {
             }
         });
 
-		this.setVisible(true);
-		this.Run();
 	}
 	
 	public void Run(){
-			
-		
-		
 
-		long initialTime = System.nanoTime();
+
+
+
+        this.setVisible(true);
+   		long initialTime = System.nanoTime();
 		final long timeU = 1000000000;
 		final long timeF = 1000000000;
 		

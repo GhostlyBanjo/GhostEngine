@@ -5,11 +5,12 @@ import java.awt.Graphics;
 import java.awt.event.*;
 
 import net.ge.src.Game;
+import net.ge.src.Main;
 
 public class MainMenuState implements GameState {
 
 	char key = ' ';
-	Option current = Option.NEW;
+	Option current = Option.DEV1;
 	
 	@Override
 	public void Update(float elapsedTime) {
@@ -41,8 +42,10 @@ public class MainMenuState implements GameState {
         if(e.getKeyCode() == KeyEvent.VK_UP){
         	lastOption();
         }
-       
-    }
+        if(e.getKeyCode() == KeyEvent.VK_ENTER || e.getKeyCode() == KeyEvent.VK_SPACE){
+            doOption();}
+
+        }
 
     @Override
 	public void OnExit() {
@@ -57,12 +60,12 @@ public class MainMenuState implements GameState {
 	}
 	
 	private void drawOptions(Graphics g){
-		if(current == Option.NEW){
+		if(current == Option.DEV1){
 			g.setColor(Color.yellow);
-			g.drawString("New Game",150,150);
+			g.drawString("Dev mode 1",150,150);
 			g.setColor(Color.white);
 		}else{
-			g.drawString("New Game",150,150);
+			g.drawString("Dev mode 1",150,150);
 		}
 		if(current == Option.LOAD){
 			g.setColor(Color.yellow);
@@ -88,19 +91,29 @@ public class MainMenuState implements GameState {
 	}
 
 	private void nextOption(){
-		if(current == Option.NEW){ current = Option.LOAD;		}
+		if(current == Option.DEV1){ current = Option.LOAD;		}
 		else if(current == Option.LOAD){ current = Option.OPTIONS;		}
 		else if(current == Option.OPTIONS){current = Option.EXIT;		}
-		else if(current == Option.EXIT){current = Option.NEW;		}
+		else if(current == Option.EXIT){current = Option.DEV1;		}
 	}
 	private void lastOption(){
-		if(current == Option.NEW){current = Option.EXIT;	}
-		else if(current == Option.LOAD){ current = Option.NEW;		}
+		if(current == Option.DEV1){current = Option.EXIT;	}
+		else if(current == Option.LOAD){ current = Option.DEV1;		}
 		else if(current == Option.OPTIONS){ current = Option.LOAD;		}
 		else if(current == Option.EXIT){current = Option.OPTIONS;		}
 	}
+
+    private void doOption(){
+        if(current == Option.DEV1){
+            Game.stateHandler.Push(new DevState());
+        }
+        else if(current == Option.LOAD){}
+        else if(current == Option.OPTIONS){}
+        else if(current == Option.EXIT){
+            net.ge.src.Main.game.closeGame();}
+    }
 }
 enum Option{
-	NEW,LOAD,OPTIONS,EXIT
+	DEV1,LOAD,OPTIONS,EXIT
 	
 }

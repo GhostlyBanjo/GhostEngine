@@ -24,13 +24,13 @@ class EmptyGameState implements GameState {
 	@Override
 	public void OnExit() {
 		// Does nothing
-		
+        System.out.println("Exiting dev state");
 	}
 
 	@Override
 	public void OnEnter() {
 		// Does nothing
-		
+		System.out.println("Entering dev state");
 	}
 
 	@Override
