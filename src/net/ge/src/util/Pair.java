@@ -4,8 +4,9 @@ public class Pair<K, V> {
 	private K key;
 	private V value;
 	
-	public Pair(int i, int j) {
-		// TODO Auto-generated constructor stub
+	public Pair(K i, V j) {
+		key = i;
+		value = j;
 	}
 	public K getKey(){
 		return key;

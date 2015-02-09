@@ -28,7 +28,7 @@ public class DevState implements GameState{
         g.setFont(Game.titleFont);
         g.drawString("Dev testing.\n Press space to return to the menu.", 100, 100);
         for(Entity e:entityArrayList){
-            e.drawObject(g);
+          e.drawObject(g);
         }
     }
     @Override
