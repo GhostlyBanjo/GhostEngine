@@ -10,7 +10,5 @@ public interface WorldObject {
     public Pair<Integer,Integer> getSize();
     public Pair<Integer,Integer> getLocation();
     public String name();
-    public String key();
-
 
 }
