@@ -7,7 +7,11 @@ import net.ge.src.Entities.WorldObject;
  */
 public class Collision {
 
-    WorldObject o1;
-    WorldObject o2;
+    WorldObject o;
+
+    public Collision(WorldObject o){
+
+    }
+
 
 }

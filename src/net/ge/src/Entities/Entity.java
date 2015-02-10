@@ -1,11 +1,9 @@
 package net.ge.src.Entities;
 
-import net.ge.src.util.Collider;
-import net.ge.src.util.Collision;
-import net.ge.src.util.Pair;
-import net.ge.src.util.Vector;
+import net.ge.src.util.*;
 
-import java.awt.Graphics;
+import java.awt.*;
+
 /**
  * Created by s613271 on 2/9/2015.
  */
@@ -44,6 +42,11 @@ public class Entity implements Collider,Drawable,WorldObject{
     @Override
     public Collision Collide(Collision c) {
         return null;
+    }
+
+    @Override
+    public Rectangle getBounds() {
+        return new Rectangle(loc.getKey(),loc.getValue(),size.getKey(),size.getValue());
     }
 
     /**
