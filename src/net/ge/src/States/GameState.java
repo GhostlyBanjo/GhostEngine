@@ -1,5 +1,7 @@
 package net.ge.src.States;
 
+import net.ge.src.Game;
+
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 
@@ -41,7 +43,7 @@ class EmptyGameState implements GameState {
 
     @Override
     public void HandleInput(KeyEvent e) {
-
+        Game.stateHandler.Pop();
     }
 
 }

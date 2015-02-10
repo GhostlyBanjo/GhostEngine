@@ -11,8 +11,12 @@ import java.awt.Graphics;
  */
 public class Entity implements Collider,Drawable,WorldObject{
 
+
+    //Name of the entity.  Used for debugging more than anything else.
     protected String name;
+    //Pair<Integer, Integer> objects used to identify the location and size of the entity.
     protected Pair<Integer, Integer> loc, size;
+    //Vector object to identify movement.
     protected Vector movement;
 
     public Entity(String name, Pair<Integer, Integer> loc, Pair<Integer, Integer> size){
@@ -42,15 +46,35 @@ public class Entity implements Collider,Drawable,WorldObject{
         return null;
     }
 
+    /**
+     *
+     * @return the movement Vector
+     */
     public Vector getMovement(){
         return movement;
     }
+
+    /**
+     *
+     * @param v replaces the movement Vector with a new one.
+     * @return the new movement vector
+     */
     public Vector changeMovement(Vector v){
         return null;
     }
+
+    /**
+     *
+     * @param v add v to the current movement Vector
+     * @return the new movement vector
+     */
     public Vector addMovement(Vector v){
         return null;
     }
+
+    /**
+     * Updates the Entity
+     */
     public void Update(){
         this.loc.setKey(this.loc.getKey() + this.movement.getX());
         this.loc.setValue(this.loc.getValue() + this.movement.getY());

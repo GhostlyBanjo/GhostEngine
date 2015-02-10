@@ -107,7 +107,9 @@ public class MainMenuState implements GameState {
         if(current == Option.DEV1){
             Game.stateHandler.Push(new DevState());
         }
-        else if(current == Option.LOAD){}
+        else if(current == Option.LOAD){
+            Game.stateHandler.Push(new EmptyGameState());
+        }
         else if(current == Option.OPTIONS){}
         else if(current == Option.EXIT){
             net.ge.src.Main.game.closeGame();}
