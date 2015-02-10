@@ -24,6 +24,10 @@ public class Vector {
         this.y+=y;
         return this.y;
     }
+    public void multiply(int f){
+        this.x *= f;
+        this.y *= f;
+    }
 	
 	
 }

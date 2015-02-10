@@ -1,9 +1,9 @@
 package net.ge.src.Entities;
 
 import net.ge.src.util.*;
-import net.ge.src.Game;
 
 
+import javax.swing.*;
 import java.awt.*;
 
 public class DevBox extends Entity{
@@ -20,7 +20,7 @@ public class DevBox extends Entity{
     public void drawObject(Graphics g) {
         Color temp = g.getColor();
         g.setColor(c);
-        g.drawRect(this.getLocation().getKey(),this.getLocation().getValue(),100,100);
+        g.drawRect(this.getLocation().getKey(),this.getLocation().getValue(),this.getSize().getKey(),this.getSize().getValue());
         g.setColor(temp);
     }
     public Vector getMovement(){
@@ -33,6 +33,11 @@ public class DevBox extends Entity{
     public Vector addMovement(Vector v){
         this.movement.addX(v.getX());
         this.movement.addY(v.getY());
-        return null;
+        return movement;
+    }
+
+    public void Collide(Collision c){
+
+        System.out.print("Collided with " + c.getObject());
     }
 }

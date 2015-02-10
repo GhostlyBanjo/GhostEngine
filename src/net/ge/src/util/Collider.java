@@ -9,6 +9,6 @@ import java.awt.*;
  */
 public interface Collider {
 
-    public Collision Collide(Collision c);
+    public void Collide(Collision c);
     public Rectangle getBounds();
 }

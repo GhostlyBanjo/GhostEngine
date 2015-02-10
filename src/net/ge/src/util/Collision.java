@@ -1,5 +1,6 @@
 package net.ge.src.util;
 
+import net.ge.src.Entities.Entity;
 import net.ge.src.Entities.WorldObject;
 
 /**
@@ -7,11 +8,14 @@ import net.ge.src.Entities.WorldObject;
  */
 public class Collision {
 
-    WorldObject o;
+    private Entity o;
 
-    public Collision(WorldObject o){
-
+    public Collision(Entity o){
+        this.o = o;
     }
 
 
+    public Entity getObject() {
+        return o;
+    }
 }

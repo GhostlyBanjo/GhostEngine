@@ -22,7 +22,10 @@ public class Entity implements Collider,Drawable,WorldObject{
         this.loc = loc;
         this.size = size;
     }
-
+    public void Update(){
+        this.loc.setKey(this.loc.getKey() + this.movement.getX());
+        this.loc.setValue(this.loc.getValue() + this.movement.getY());
+    }
     @Override
     public void drawObject(Graphics g){
 
@@ -40,9 +43,7 @@ public class Entity implements Collider,Drawable,WorldObject{
         return name;
     }
     @Override
-    public Collision Collide(Collision c) {
-        return null;
-    }
+    public void Collide(Collision c) {}
 
     @Override
     public Rectangle getBounds() {
@@ -78,8 +79,9 @@ public class Entity implements Collider,Drawable,WorldObject{
     /**
      * Updates the Entity
      */
-    public void Update(){
-        this.loc.setKey(this.loc.getKey() + this.movement.getX());
-        this.loc.setValue(this.loc.getValue() + this.movement.getY());
+
+    public Vector multiplyMovement(int i){
+        this.movement.multiply(i);
+        return movement;
     }
 }

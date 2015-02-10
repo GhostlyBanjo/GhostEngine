@@ -17,8 +17,17 @@ public class DevState implements GameState{
     ArrayList<Entity> entityArrayList = new ArrayList<Entity>();
     @Override
     public void Update(float elapsedTime) {
+
+        for(int x = 0; x<=entityArrayList.size()-1; x++){
+            for(int y = x+1;y<=entityArrayList.size()-1; y++){
+                Game.collisionHandler.CheckEntityCollisions(entityArrayList.get(x),entityArrayList.get(y));
+            }
+            Game.collisionHandler.CheckScreenCollisions(entityArrayList.get(x));
+        }
         for(Entity e:entityArrayList){
+
             e.Update();
+
         }
     }
 
@@ -47,7 +56,9 @@ public class DevState implements GameState{
 
     @Override
     public void OnEnter() {
-        entityArrayList.add(new DevBox(new Pair<Integer,Integer>(300,300), Color.GREEN));
-        entityArrayList.get(0).addMovement(new Vector(5,2));
+        entityArrayList.add(new DevBox(new Pair<Integer,Integer>(310,300), Color.GREEN));
+        entityArrayList.get(0).addMovement(new Vector(1,1));
+        entityArrayList.add(new DevBox(new Pair<Integer,Integer>(800,300), Color.RED));
+        entityArrayList.get(1).addMovement(new Vector(-2,-1));
     }
 }
