@@ -17,7 +17,9 @@ public class DevState implements GameState{
     ArrayList<Entity> entityArrayList = new ArrayList<Entity>();
     @Override
     public void Update(float elapsedTime) {
-
+        for(Entity e:entityArrayList){
+            e.Update();
+        }
     }
 
     @Override
@@ -46,5 +48,6 @@ public class DevState implements GameState{
     @Override
     public void OnEnter() {
         entityArrayList.add(new DevBox(new Pair<Integer,Integer>(300,300), Color.GREEN));
+        entityArrayList.get(0).addMovement(new Vector(5,2));
     }
 }

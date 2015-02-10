@@ -7,5 +7,5 @@ import net.ge.src.util.Collision;
  */
 public interface Collider {
 
-    public Collision collide(Collision c);
+    public Collision Collide(Collision c);
 }

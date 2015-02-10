@@ -16,7 +16,14 @@ public class Vector {
 		public int getY() {
 			return y;
 		}
-		
+    public int addX(int x) {
+        this.x +=x;
+        return this.x;
+    }
+    public int addY(int y){
+        this.y+=y;
+        return this.y;
+    }
 	
 	
 }
