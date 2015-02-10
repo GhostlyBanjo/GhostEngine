@@ -6,7 +6,7 @@ package net.ge.src.util;
 public class CollisionHandler {
 
     public void CheckCollisions(Collider c1, Collider c2){
-
+            int[] left = { c1.}
     }
 
 }
