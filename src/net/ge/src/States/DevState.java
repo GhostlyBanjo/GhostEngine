@@ -59,6 +59,6 @@ public class DevState implements GameState{
         entityArrayList.add(new DevBox(new Pair<Integer,Integer>(310,300), Color.GREEN));
         entityArrayList.get(0).addMovement(new Vector(1,1));
         entityArrayList.add(new DevBox(new Pair<Integer,Integer>(800,300), Color.RED));
-        entityArrayList.get(1).addMovement(new Vector(-2,-1));
+        entityArrayList.get(1).addMovement(new Vector(1,-1));
     }
 }

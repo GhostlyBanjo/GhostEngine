@@ -28,6 +28,10 @@ public class Vector {
         this.x *= f;
         this.y *= f;
     }
-	
-	
+	public void flipY(){
+        this.y*=-1;
+    }
+    public void flipX(){
+        this.x*=-1;
+    }
 }

@@ -13,7 +13,7 @@ public class DevBox extends Entity{
     public DevBox(Pair<Integer, Integer> loc, Color c){
         super("Dev", loc, new Pair<Integer, Integer>(10,10));
         this.loc = loc;
-        this.size = new Pair<Integer, Integer>(10,10);
+        this.size = new Pair<Integer, Integer>(100,100);
         this.c=c;
         this.movement = new Vector(0,0);
     }
