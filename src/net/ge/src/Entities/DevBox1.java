@@ -37,13 +37,12 @@ public class DevBox1 extends Entity {
         else{
             g.setColor(c[1]);
         }
-        g.fillRect(this.getLocation().getKey().intValue(),this.getLocation().getValue().intValue(),this.getSize().getKey().intValue(),this.getSize().getValue().intValue());
+        g.drawRect(this.getLocation().getKey().intValue(),this.getLocation().getValue().intValue(),this.getSize().getKey().intValue(),this.getSize().getValue().intValue());
         g.setColor(temp);
     }
 
     public void Collide(Collision c){
 
-        System.out.print("Collided with " + c.getObject());
-        changed = true;
+      changed = true;
     }
 }

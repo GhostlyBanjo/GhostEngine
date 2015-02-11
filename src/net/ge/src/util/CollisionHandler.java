@@ -22,18 +22,8 @@ public class CollisionHandler {
         if (b0.intersects(b1)) {
             if(left[0] <= right[1]&&right[0]>right[1]){
                 s0 = Side.LEFT; s1 = Side.RIGHT;
-                if(bottom[0] >= top[1]&&top[0]>bottom[1]){
-                    s0 = Side.TOP; s1 = Side.BOTTOM;
-                }else if(bottom[1] >= top[0]&&top[1]>bottom[0]){
-                    s1 = Side.TOP; s0 = Side.BOTTOM;
-                }
             }else if(left[1] <= right[0]&&right[1]>right[0]){
                 s1 = Side.LEFT; s0 = Side.RIGHT;
-                if(bottom[0] >= top[1]&&top[0]>top[1]){
-                    s0 = Side.TOP; s1 = Side.BOTTOM;
-                }else if(bottom[1] >= top[0]&&top[1]>top[0]){
-                    s1 = Side.TOP; s0 = Side.BOTTOM;
-                }
             }
         c0.Collide(new Collision(c1,s0));
         c1.Collide(new Collision(c0,s1));

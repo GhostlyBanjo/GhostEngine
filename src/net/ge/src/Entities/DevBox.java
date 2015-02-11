@@ -21,7 +21,7 @@ public class DevBox extends Entity{
     public void drawObject(Graphics g) {
         Color temp = g.getColor();
         g.setColor(c);
-        g.fillRect(this.getLocation().getKey().intValue(), this.getLocation().getValue().intValue(), this.getSize().getKey().intValue(), this.getSize().getValue().intValue());
+        g.drawRect(this.getLocation().getKey().intValue(), this.getLocation().getValue().intValue(), this.getSize().getKey().intValue(), this.getSize().getValue().intValue());
         g.setColor(temp);
     }
 
