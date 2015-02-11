@@ -26,7 +26,7 @@ public class DevState implements GameState{
         }
         for(Entity e:entityArrayList){
 
-            e.Update();
+            e.Update(elapsedTime);
 
         }
     }
@@ -56,9 +56,9 @@ public class DevState implements GameState{
 
     @Override
     public void OnEnter() {
-        entityArrayList.add(new DevBox(new Pair<Integer,Integer>(310,300), Color.GREEN));
-        entityArrayList.get(0).addMovement(new Vector(1,1));
-        entityArrayList.add(new DevBox(new Pair<Integer,Integer>(800,300), Color.RED));
-        entityArrayList.get(1).addMovement(new Vector(1,-1));
+        entityArrayList.add(new DevBox(new Pair<Float,Float>(310f,300f), Color.GREEN));
+        entityArrayList.get(0).addMovement(new Vector(2f,.5f));
+        entityArrayList.add(new DevBox1("DevBox1",new Pair<Float,Float>(800f,300f),new Pair<Float,Float>(150f,150f), Color.GREEN));
+
     }
 }

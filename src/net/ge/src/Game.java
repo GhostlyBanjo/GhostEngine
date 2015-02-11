@@ -62,13 +62,13 @@ int frames = 0, ticks = 0;
 		deltaR +=(now - initialTime) / timeF;	
 		
 
-        if (deltaU >= 1) {
+        if (deltaU >= 100) {
 
         	stateHandler.Update(deltaU);
             ticks++;
             deltaU--;
         }
-        if (deltaR >= 1) {
+        if (deltaR >= 100) {
             this.Render(getGraphics());
             frames++;
             deltaR--;

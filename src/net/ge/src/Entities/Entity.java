@@ -7,22 +7,22 @@ import java.awt.*;
 /**
  * Created by s613271 on 2/9/2015.
  */
-public class Entity implements Collider,Drawable,WorldObject{
+public abstract class Entity implements Collider,Drawable,WorldObject{
 
 
     //Name of the entity.  Used for debugging more than anything else.
     protected String name;
     //Pair<Integer, Integer> objects used to identify the location and size of the entity.
-    protected Pair<Integer, Integer> loc, size;
+    protected Pair<Float, Float> loc, size;
     //Vector object to identify movement.
     protected Vector movement;
 
-    public Entity(String name, Pair<Integer, Integer> loc, Pair<Integer, Integer> size){
+    public Entity(String name, Pair<Float, Float> loc, Pair<Float, Float> size){
         this.name = name;
         this.loc = loc;
         this.size = size;
     }
-    public void Update(){
+    public void Update(float elapsedTime){
         this.loc.setKey(this.loc.getKey() + this.movement.getX());
         this.loc.setValue(this.loc.getValue() + this.movement.getY());
     }
@@ -31,11 +31,11 @@ public class Entity implements Collider,Drawable,WorldObject{
 
     }
     @Override
-    public Pair<Integer, Integer> getSize() {
+    public Pair<Float, Float> getSize() {
         return this.size;
     }
     @Override
-    public Pair<Integer, Integer> getLocation() {
+    public Pair<Float, Float> getLocation() {
         return this.loc;
     }
     @Override
@@ -47,7 +47,7 @@ public class Entity implements Collider,Drawable,WorldObject{
 
     @Override
     public Rectangle getBounds() {
-        return new Rectangle(loc.getKey(),loc.getValue(),size.getKey(),size.getValue());
+        return new Rectangle(loc.getKey().intValue(),loc.getValue().intValue(),size.getKey().intValue(),size.getValue().intValue());
     }
 
     /**
@@ -63,8 +63,9 @@ public class Entity implements Collider,Drawable,WorldObject{
      * @param v replaces the movement Vector with a new one.
      * @return the new movement vector
      */
-    public Vector changeMovement(Vector v){
-        return null;
+    public Vector changeMovement(Vector v) {
+        this.movement = v;
+        return this.movement;
     }
 
     /**
@@ -73,7 +74,8 @@ public class Entity implements Collider,Drawable,WorldObject{
      * @return the new movement vector
      */
     public Vector addMovement(Vector v){
-        return null;
+        this.movement.addVector(v);
+        return this.movement;
     }
 
     /**

@@ -7,8 +7,8 @@ import net.ge.src.util.Pair;
  */
 public interface WorldObject {
 
-    public Pair<Integer,Integer> getSize();
-    public Pair<Integer,Integer> getLocation();
+    public Pair<Float, Float> getSize();
+    public Pair<Float, Float> getLocation();
     public String name();
 
 }

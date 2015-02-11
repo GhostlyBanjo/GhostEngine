@@ -12,15 +12,20 @@ public class CollisionHandler {
     public void CheckEntityCollisions(Entity c0, Entity c1){
             Rectangle b0 = c0.getBounds();
             Rectangle b1 = c1.getBounds();
-        /*
-            if(b0.intersects(b1)){
-                c0.multiplyMovement(-1);
-                c1.multiplyMovement(-1);
-                System.out.println("Collision!");
-            }*/
-        if (b0.getY()>b1.getY()+b1.getHeight()){
 
+
+            int[] left = { c0.getLocation().getKey().intValue(), c1.getLocation().getKey().intValue()};
+            int[] right = { (int)(c0.getLocation().getKey()+c0.getSize().getKey()), (int)(c1.getLocation().getKey()+c1.getSize().getKey())};
+            int[] top = { c0.getLocation().getValue().intValue(), c1.getLocation().getValue().intValue()};
+            int[] bottom = {(int)(c0.getLocation().getValue()+c0.getSize().getValue()), (int)(c1.getLocation().getValue()+c1.getSize().getValue())};
+
+        if (b0.intersects(b1)){
+            c0.Collide(new Collision(c1));
+            c1.Collide(new Collision(c0));
         }
+
+
+
     }
     public void CheckScreenCollisions(Entity c0){
         if(c0.getLocation().getKey()<0 || (c0.getLocation().getKey() + c0.getSize().getKey()) > Game.WIDTH){

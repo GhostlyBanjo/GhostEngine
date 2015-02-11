@@ -2,31 +2,35 @@ package net.ge.src.util;
 
 public class Vector {
 
-		private int x;
-		private int y;
+		private float x;
+		private float y;
 	
 		
-		public Vector(int x, int y){
+		public Vector(float x, float y){
 			this.x = x;
 			this.y=y;
 			}
-		public int getX() {
+		public float getX() {
 			return x;
 		}
-		public int getY() {
+		public float getY() {
 			return y;
 		}
-    public int addX(int x) {
+    public float addX(float x) {
         this.x +=x;
         return this.x;
     }
-    public int addY(int y){
+    public float addY(float y){
         this.y+=y;
         return this.y;
     }
-    public void multiply(int f){
+    public void multiply(float f){
         this.x *= f;
         this.y *= f;
+    }
+    public void addVector(Vector v){
+        this.x += v.getX();
+        this.y += v.getY();
     }
 	public void flipY(){
         this.y*=-1;
