@@ -86,4 +86,7 @@ public abstract class Entity implements Collider,Drawable,WorldObject{
         this.movement.multiply(i);
         return movement;
     }
+    public String toString(){
+        return this.name;
+    }
 }

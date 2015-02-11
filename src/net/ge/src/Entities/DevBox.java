@@ -27,7 +27,14 @@ public class DevBox extends Entity{
 
     public void Collide(Collision c){
 
-        System.out.print("Collided with " + c.getObject());
-        this.multiplyMovement(-1);
+        System.out.println("Collided with " + c.getObject() + " on side " + c.getSide());
+        switch(c.getSide()){
+            case TOP:
+            case BOTTOM:this.getMovement().flipY();break;
+            case LEFT:
+            case RIGHT:this.getMovement().flipX();break;
+            default:
+                break;
+        }
     }
 }

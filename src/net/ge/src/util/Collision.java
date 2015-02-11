@@ -9,11 +9,15 @@ import net.ge.src.Entities.WorldObject;
 public class Collision {
 
     private Entity o;
+    private Side s;
 
-    public Collision(Entity o){
-        this.o = o;
+    public Collision(Entity o,Side s){
+        this.o = o;this.s = s;
     }
 
+    public Side getSide(){
+        return s;
+    }
 
     public Entity getObject() {
         return o;

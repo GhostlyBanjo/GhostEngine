@@ -12,21 +12,41 @@ public class CollisionHandler {
     public void CheckEntityCollisions(Entity c0, Entity c1){
             Rectangle b0 = c0.getBounds();
             Rectangle b1 = c1.getBounds();
-
+            Side s1 = Side.NONE, s0 = Side.NONE;
 
             int[] left = { c0.getLocation().getKey().intValue(), c1.getLocation().getKey().intValue()};
             int[] right = { (int)(c0.getLocation().getKey()+c0.getSize().getKey()), (int)(c1.getLocation().getKey()+c1.getSize().getKey())};
             int[] top = { c0.getLocation().getValue().intValue(), c1.getLocation().getValue().intValue()};
             int[] bottom = {(int)(c0.getLocation().getValue()+c0.getSize().getValue()), (int)(c1.getLocation().getValue()+c1.getSize().getValue())};
 
-        if (b0.intersects(b1)){
+        if (b0.intersects(b1)) {
+            if(left[0] <= right[1]&&right[0]>right[1]){
+                s0 = Side.LEFT; s1 = Side.RIGHT;
+                if(bottom[0] >= top[1]&&top[0]>bottom[1]){
+                    s0 = Side.TOP; s1 = Side.BOTTOM;
+                }else if(bottom[1] >= top[0]&&top[1]>bottom[0]){
+                    s1 = Side.TOP; s0 = Side.BOTTOM;
+                }
+            }else if(left[1] <= right[0]&&right[1]>right[0]){
+                s1 = Side.LEFT; s0 = Side.RIGHT;
+                if(bottom[0] >= top[1]&&top[0]>top[1]){
+                    s0 = Side.TOP; s1 = Side.BOTTOM;
+                }else if(bottom[1] >= top[0]&&top[1]>top[0]){
+                    s1 = Side.TOP; s0 = Side.BOTTOM;
+                }
+            }
+        c0.Collide(new Collision(c1,s0));
+        c1.Collide(new Collision(c0,s1));
+        }
+/*
             c0.Collide(new Collision(c1));
             c1.Collide(new Collision(c0));
         }
-
+*/
 
 
     }
+
     public void CheckScreenCollisions(Entity c0){
         if(c0.getLocation().getKey()<0 || (c0.getLocation().getKey() + c0.getSize().getKey()) > Game.WIDTH){
             c0.getMovement().flipX();
