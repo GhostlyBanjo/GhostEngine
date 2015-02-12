@@ -1,9 +1,7 @@
-package net.ge.src.net.ge.src.Dev;
+package net.ge.src.Dev;
 
 import net.ge.src.Entities.*;
 import net.ge.src.States.GameState;
-import net.ge.src.net.ge.src.Dev.DevBox1;
-import net.ge.src.net.ge.src.Dev.DevBoxPlayer;
 import net.ge.src.util.*;
 import net.ge.src.*;
 

@@ -1,4 +1,4 @@
-package net.ge.src.net.ge.src.Dev;
+package net.ge.src.Dev;
 
 import net.ge.src.Entities.Entity;
 import net.ge.src.Game;
@@ -18,35 +18,26 @@ public class DevBoxPlayer extends Entity {
     public DevBoxPlayer(Pair<Float, Float> loc, Color c){
         super("Dev", loc, new Pair<Float, Float>(10f,10f));
         this.loc = loc;
-        this.size = new Pair<Float, Float>(100f,100f);
+        this.size = new Pair<Float, Float>(10f,10f);
         this.c=c;
         this.movement = new Vector(0,0);
     }
     public void drawObject(Graphics g) {
         Color temp = g.getColor();
         g.setColor(c);
-        g.drawRect(this.getLocation().getKey().intValue(), this.getLocation().getValue().intValue(), this.getSize().getKey().intValue(), this.getSize().getValue().intValue());
+        g.drawOval(this.getLocation().getKey().intValue(), this.getLocation().getValue().intValue(), this.getSize().getKey().intValue(), this.getSize().getValue().intValue());
         g.setColor(temp);
     }
     public void Update(float elapsedTime){
-        if(isMoving){
+
             super.Update(elapsedTime);
-            isMoving = false;
-        }
+
+
     }
     public void Collide(Collision c){
 
         System.out.println("Collided with " + c.getObject() + " on side " + c.getSide());
-        switch(c.getSide()){
-            case TOP:this.movement.flipY();
-                break;
-            case BOTTOM:this.movement.flipY();
-                break;
-            case LEFT:this.movement.flipX();
-                break;
-            case RIGHT:this.movement.flipX();
-                break;
-        }
+        this.multiplyMovement(-1);
 
     }
     public void HandleInput(KeyEvent e) {
@@ -55,16 +46,19 @@ public class DevBoxPlayer extends Entity {
 
         switch(e.getKeyCode()){
             case KeyEvent.VK_LEFT:
-                this.changeMovement(new Vector(-1f,0f));
+                this.addMovement(new Vector(-1f, 0f));
                 break;
             case KeyEvent.VK_RIGHT:
-                this.changeMovement(new Vector(1f,0f));
+                this.addMovement(new Vector(1f, 0f));
                 break;
             case KeyEvent.VK_UP:
-                this.changeMovement(new Vector(0f,-1f));
+                this.addMovement(new Vector(0f, -1f));
                 break;
             case KeyEvent.VK_DOWN:
-                this.changeMovement(new Vector(0f,1f));
+                this.addMovement(new Vector(0f, 1f));
+                break;
+            case KeyEvent.VK_Z:
+                this.movement = new Vector(0f,0f);
                 break;
 
         }

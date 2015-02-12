@@ -1,4 +1,4 @@
-package net.ge.src.net.ge.src.Dev;
+package net.ge.src.Dev;
 
 import net.ge.src.Entities.Entity;
 import net.ge.src.util.Collision;

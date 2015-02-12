@@ -5,8 +5,8 @@ import java.awt.Graphics;
 import java.awt.event.*;
 
 import net.ge.src.Game;
-import net.ge.src.net.ge.src.Dev.DevState;
-import net.ge.src.net.ge.src.Dev.Main;
+import net.ge.src.Dev.DevState;
+import net.ge.src.Dev.Main;
 
 public class MainMenuState implements GameState {
 
