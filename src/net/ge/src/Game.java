@@ -64,12 +64,12 @@ int frames = 0, ticks = 0;
 
         	stateHandler.Update(deltaU);
             ticks++;
-            deltaU--;
+            deltaU-=100;
         }
         if (deltaR >= 100) {
             this.Render(getGraphics());
             frames++;
-            deltaR--;
+            deltaR-=100;
         }
 
         if (System.currentTimeMillis() - timer > 1000) {

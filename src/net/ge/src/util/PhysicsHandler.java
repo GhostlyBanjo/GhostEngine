@@ -20,20 +20,24 @@ public class PhysicsHandler {
             int[] bottom = {(int)(c0.getLocation().getValue()+c0.getSize().getValue()), (int)(c1.getLocation().getValue()+c1.getSize().getValue())};
 
         if (b0.intersects(b1)) {
-            if(left[0] >= right[1]){
+            if((b0.getCenterX()-(b0.getWidth()/2))-(b1.getX()+b1.getWidth())<0)
+            {
                 s0 = Side.LEFT; s1 = Side.RIGHT;
-            }if(left[1] >= right[0]) {
-                s1 = Side.LEFT;
-                s0 = Side.RIGHT;
             }
-            if(top[0] >= bottom[1]){
+            if((b1.getCenterX()-(b1.getWidth()/2))-(b0.getX()+b0.getWidth())<0)
+            {
+                s1 = Side.LEFT; s0 = Side.RIGHT;
+            }
+            if((b0.getCenterY()-(b0.getHeight()/2))-(b1.getY()+b1.getHeight())>0)
+            {
                 s0 = Side.TOP; s1 = Side.BOTTOM;
-            }if(top[1] >= bottom[0]) {
-                s1 = Side.TOP;
-                s0 = Side.BOTTOM;
             }
-        c0.Collide(new Collision(c1,s0));
-        c1.Collide(new Collision(c0,s1));
+            else if(b1.getCenterY()-(b0.getY()+b1.getHeight())>0)
+            {
+                s1 = Side.TOP ; s0 = Side.BOTTOM;
+            }
+            c0.Collide(new Collision(c1,s0));
+            c1.Collide(new Collision(c0,s1));
         }
 /*
             c0.Collide(new Collision(c1));

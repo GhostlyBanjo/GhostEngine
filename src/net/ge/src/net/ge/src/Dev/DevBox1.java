@@ -24,8 +24,8 @@ public class DevBox1 extends Entity {
     }
     public void Update(float elapsedTime){
         if(changed){
-        selfTimer+=elapsedTime;
-        if(selfTimer>=10000){
+        selfTimer= selfTimer + elapsedTime;
+        if(selfTimer>10000){
             changed = false;
             selfTimer = 0;
         }
@@ -44,6 +44,6 @@ public class DevBox1 extends Entity {
 
     public void Collide(Collision c){
 
-      changed = true;
+        if(!changed){changed = true;}
     }
 }

@@ -28,11 +28,25 @@ public class DevBoxPlayer extends Entity {
         g.drawRect(this.getLocation().getKey().intValue(), this.getLocation().getValue().intValue(), this.getSize().getKey().intValue(), this.getSize().getValue().intValue());
         g.setColor(temp);
     }
-
+    public void Update(float elapsedTime){
+        if(isMoving){
+            super.Update(elapsedTime);
+            isMoving = false;
+        }
+    }
     public void Collide(Collision c){
 
         System.out.println("Collided with " + c.getObject() + " on side " + c.getSide());
-        this.multiplyMovement(-1);
+        switch(c.getSide()){
+            case TOP:this.movement.flipY();
+                break;
+            case BOTTOM:this.movement.flipY();
+                break;
+            case LEFT:this.movement.flipX();
+                break;
+            case RIGHT:this.movement.flipX();
+                break;
+        }
 
     }
     public void HandleInput(KeyEvent e) {
@@ -54,5 +68,6 @@ public class DevBoxPlayer extends Entity {
                 break;
 
         }
+        isMoving = true;
     }
 }
