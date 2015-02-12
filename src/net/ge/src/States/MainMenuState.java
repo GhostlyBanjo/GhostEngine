@@ -5,7 +5,8 @@ import java.awt.Graphics;
 import java.awt.event.*;
 
 import net.ge.src.Game;
-import net.ge.src.Main;
+import net.ge.src.net.ge.src.Dev.DevState;
+import net.ge.src.net.ge.src.Dev.Main;
 
 public class MainMenuState implements GameState {
 
@@ -112,7 +113,7 @@ public class MainMenuState implements GameState {
         }
         else if(current == Option.OPTIONS){}
         else if(current == Option.EXIT){
-            net.ge.src.Main.game.closeGame();}
+            Main.game.closeGame();}
     }
 }
 enum Option{

@@ -1,19 +1,20 @@
-package net.ge.src.States;
+package net.ge.src.net.ge.src.Dev;
 
 import net.ge.src.Entities.*;
+import net.ge.src.States.GameState;
+import net.ge.src.net.ge.src.Dev.DevBox1;
+import net.ge.src.net.ge.src.Dev.DevBoxPlayer;
 import net.ge.src.util.*;
 import net.ge.src.*;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 /**
  * Created by Forrest on 2/7/2015.
  */
-public class DevState implements GameState{
+public class DevState implements GameState {
     ArrayList<Entity> entityArrayList = new ArrayList<Entity>();
     @Override
     public void Update(float elapsedTime) {
@@ -47,6 +48,15 @@ public class DevState implements GameState{
         if(e.getKeyCode() == KeyEvent.VK_SPACE){
             Game.stateHandler.Pop();
         }
+        switch(e.getKeyCode()){
+            case KeyEvent.VK_LEFT:
+            case KeyEvent.VK_RIGHT:
+            case KeyEvent.VK_UP:
+            case KeyEvent.VK_DOWN:
+                entityArrayList.get(0).HandleInput(e);
+                break;
+
+        }
     }
 
     @Override
@@ -56,7 +66,7 @@ public class DevState implements GameState{
 
     @Override
     public void OnEnter() {
-        entityArrayList.add(new DevBox(new Pair<Float,Float>(310f,300f), Color.GREEN));
+        entityArrayList.add(new DevBoxPlayer(new Pair<Float,Float>(310f,300f), Color.GREEN));
         entityArrayList.get(0).addMovement(new Vector(2f,.5f));
         entityArrayList.add(new DevBox1("DevBox1",new Pair<Float,Float>(Game.WIDTH/2f,Game.HEIGHT/2f),new Pair<Float,Float>(150f,150f), Color.GREEN));
 

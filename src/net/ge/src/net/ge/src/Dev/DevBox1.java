@@ -1,11 +1,12 @@
-package net.ge.src.Entities;
+package net.ge.src.net.ge.src.Dev;
 
+import net.ge.src.Entities.Entity;
 import net.ge.src.util.Collision;
 import net.ge.src.util.Pair;
 
 import java.awt.*;
 
-import static java.awt.Color.GREEN;
+
 
 /**
  * Created by s613271 on 2/11/2015.
@@ -24,20 +25,20 @@ public class DevBox1 extends Entity {
     public void Update(float elapsedTime){
         if(changed){
         selfTimer+=elapsedTime;
-        if(selfTimer>=100000){
-            selfTimer = 0;
+        if(selfTimer>=10000){
             changed = false;
+            selfTimer = 0;
         }
         }
     }
     public void drawObject(Graphics g) {
         Color temp = g.getColor();
-        if(changed){
+        if(!changed){
         g.setColor(c[0]);}
         else{
             g.setColor(c[1]);
         }
-        g.drawRect(this.getLocation().getKey().intValue(),this.getLocation().getValue().intValue(),this.getSize().getKey().intValue(),this.getSize().getValue().intValue());
+        g.drawRect(this.getLocation().getKey().intValue(), this.getLocation().getValue().intValue(), this.getSize().getKey().intValue(), this.getSize().getValue().intValue());
         g.setColor(temp);
     }
 

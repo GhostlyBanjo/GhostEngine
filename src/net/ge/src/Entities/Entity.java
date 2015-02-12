@@ -3,6 +3,7 @@ package net.ge.src.Entities;
 import net.ge.src.util.*;
 
 import java.awt.*;
+import java.awt.event.KeyEvent;
 
 /**
  * Created by s613271 on 2/9/2015.
@@ -86,6 +87,10 @@ public abstract class Entity implements Collider,Drawable,WorldObject{
         this.movement.multiply(i);
         return movement;
     }
+    public void HandleInput(KeyEvent e){
+
+    }
+
     public String toString(){
         return this.name;
     }

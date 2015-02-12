@@ -3,13 +3,11 @@ package net.ge.src;
 import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.awt.image.BufferedImage;
 
 import javax.swing.JFrame;
 
 import net.ge.src.States.*;
-import net.ge.src.util.CollisionHandler;
-import net.ge.src.util.Pair;
+import net.ge.src.util.PhysicsHandler;
 
 public class Game extends JFrame {
 
@@ -17,7 +15,7 @@ public class Game extends JFrame {
 	public static final int WIDTH = 1024;
 	public static final int HEIGHT = 728;
 	public static StateHandler stateHandler = new StateHandler();
-	public static CollisionHandler collisionHandler = new CollisionHandler();
+	public static PhysicsHandler collisionHandler = new PhysicsHandler();
 	
 	private boolean isRun = true;
 	public static Font titleFont = new Font("Terminal", Font.PLAIN,36);

@@ -1,4 +1,6 @@
-package net.ge.src;
+package net.ge.src.net.ge.src.Dev;
+
+import net.ge.src.Game;
 
 public class Main {
 

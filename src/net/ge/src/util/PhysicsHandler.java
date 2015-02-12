@@ -7,7 +7,7 @@ import java.awt.*;
 /**
  * Created by s613271 on 2/10/2015.
  */
-public class CollisionHandler {
+public class PhysicsHandler {
 
     public void CheckEntityCollisions(Entity c0, Entity c1){
             Rectangle b0 = c0.getBounds();
@@ -20,10 +20,17 @@ public class CollisionHandler {
             int[] bottom = {(int)(c0.getLocation().getValue()+c0.getSize().getValue()), (int)(c1.getLocation().getValue()+c1.getSize().getValue())};
 
         if (b0.intersects(b1)) {
-            if(left[0] <= right[1]&&right[0]>right[1]){
+            if(left[0] >= right[1]){
                 s0 = Side.LEFT; s1 = Side.RIGHT;
-            }else if(left[1] <= right[0]&&right[1]>right[0]){
-                s1 = Side.LEFT; s0 = Side.RIGHT;
+            }if(left[1] >= right[0]) {
+                s1 = Side.LEFT;
+                s0 = Side.RIGHT;
+            }
+            if(top[0] >= bottom[1]){
+                s0 = Side.TOP; s1 = Side.BOTTOM;
+            }if(top[1] >= bottom[0]) {
+                s1 = Side.TOP;
+                s0 = Side.BOTTOM;
             }
         c0.Collide(new Collision(c1,s0));
         c1.Collide(new Collision(c0,s1));
