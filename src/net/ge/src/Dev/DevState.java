@@ -65,7 +65,7 @@ public class DevState implements GameState {
     @Override
     public void OnEnter() {
         entityArrayList.add(new DevBoxPlayer(new Pair<Float,Float>(310f,300f), Color.GREEN));
-        entityArrayList.get(0).addMovement(new Vector(.5f,4f));
+        entityArrayList.get(0).addMovement(new Vector(1f,2f));
         entityArrayList.add(new DevBox1("DevBox1",new Pair<Float,Float>(Game.WIDTH/2f,Game.HEIGHT/2f),new Pair<Float,Float>(150f,150f), Color.GREEN));
 
     }

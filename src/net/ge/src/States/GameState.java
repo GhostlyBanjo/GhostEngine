@@ -15,35 +15,3 @@ public interface GameState {
 	
 }
 
-class EmptyGameState implements GameState {
-
-	@Override
-	public void Update(float elapsedTime) {
-		// Does nothing
-		
-	}
-
-	@Override
-	public void OnExit() {
-		// Does nothing
-        System.out.println("Exiting dev state");
-	}
-
-	@Override
-	public void OnEnter() {
-		// Does nothing
-		System.out.println("Entering dev state");
-	}
-
-	@Override
-	public void Render(Graphics g) {
-		// Does Nothing
-		
-	}
-
-    @Override
-    public void HandleInput(KeyEvent e) {
-        Game.stateHandler.Pop();
-    }
-
-}

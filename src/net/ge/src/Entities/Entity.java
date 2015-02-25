@@ -22,6 +22,7 @@ public abstract class Entity implements Collider,Drawable,WorldObject{
         this.name = name;
         this.loc = loc;
         this.size = size;
+        this.changeMovement(new Vector(0,0));
     }
     public void Update(float elapsedTime){
         this.loc.setKey(this.loc.getKey() + this.movement.getX());

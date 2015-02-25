@@ -1,19 +1,18 @@
 package net.ge.src;
 
+import net.ge.src.States.StateHandler;
+import net.ge.src.util.PhysicsHandler;
+
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-
-import javax.swing.JFrame;
-
-import net.ge.src.States.*;
-import net.ge.src.util.PhysicsHandler;
 
 public class Game extends JFrame {
 
 	
 	public static final int WIDTH = 1024;
-	public static final int HEIGHT = 728;
+	public static final int HEIGHT = 736;
 	public static StateHandler stateHandler = new StateHandler();
 	public static PhysicsHandler collisionHandler = new PhysicsHandler();
 	
@@ -24,7 +23,6 @@ public class Game extends JFrame {
 
 	
 	public Game(){
-		stateHandler.Push(new MainMenuState());
 		this.setSize(WIDTH, HEIGHT);
 
         addKeyListener(stateHandler);

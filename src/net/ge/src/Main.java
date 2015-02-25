@@ -1,4 +1,4 @@
-package net.ge.src.net.ge.src.Dev;
+package net.ge.src;
 
 import net.ge.src.Game;
 

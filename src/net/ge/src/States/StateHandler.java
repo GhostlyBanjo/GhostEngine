@@ -46,6 +46,9 @@ public class StateHandler implements KeyListener {
 		//Removes a game state from the stack, reverting to the last previous  
 		stateStack.pop().OnExit();
 	}
+    public GameState Peek(){
+        return stateStack.peek();
+    }
     @Override
     public void keyPressed(KeyEvent e) {  
     	//Sends the key input to the state to be handled.
